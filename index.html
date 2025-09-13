@@ -1,123 +1,698 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lay's Potato Chips</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lay's - Snack Terbaik Untukmu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* --- General Styles & Mobile-First --- */
+        :root {
+            --primary-red: #D8242A;
+            --dark-red: #A91B20;
+            --primary-yellow: #FFC72C;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+            --bg-light: #FFF;
+            --bg-brown: #543D36;
+            --bg-offwhite: #F9F9F9;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden; /* Mencegah scroll horizontal */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 0;
+        }
+
+        h1, h2, h3 {
+            margin-top: 0;
+            font-weight: 900;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-yellow {
+            background-color: var(--primary-yellow);
+            color: var(--text-dark);
+        }
+        
+        .btn-yellow:hover {
+            background-color: #e6b327;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        /* --- Header & Navigation --- */
+        .header {
+            background-color: var(--primary-red);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: none; /* Disembunyikan di mobile */
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-yellow);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger-menu {
+            display: flex; /* Ditampilkan di mobile */
+            flex-direction: column;
+            justify-content: space-around;
+            width: 28px;
+            height: 22px;
+            cursor: pointer;
+            z-index: 2;
+        }
+        
+        .hamburger-menu div {
+            width: 28px;
+            height: 3px;
+            background-color: white;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            transform-origin: 1px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background-color: var(--primary-red);
+            text-align: center;
+            padding-bottom: 80px;
+            color: var(--text-light);
+        }
+
+        .hero .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-text {
+            margin-bottom: 40px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-image {
+            max-width: 450px;
+        }
+        
+        .wave-divider {
+            background-color: var(--primary-red);
+            position: relative;
+            height: 60px;
+            margin-top: -1px;
+        }
+        .wave-divider::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill" fill="white"></path></svg>') no-repeat center center;
+            background-size: 100% 100%;
+        }
+
+        /* --- Best Sellers Section --- */
+        .best-sellers {
+            text-align: center;
+        }
+        
+        .section-header {
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+        .section-header a {
+            font-size: 1rem;
+            color: var(--primary-red);
+            font-weight: 700;
+            margin-left: 10px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        
+        .product-card {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .product-card img {
+            max-height: 150px;
+            margin: 0 auto 15px;
+        }
+        
+        .product-card h3 {
+            font-size: 1.1rem;
+            margin: 10px 0 5px;
+            font-weight: 700;
+        }
+        
+        .product-card .price {
+            font-weight: 700;
+            color: var(--primary-red);
+        }
+
+        .create-your-own {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .create-your-own img {
+             max-height: 120px;
+             margin-bottom: 20px;
+        }
+        .create-your-own h3 {
+            font-size: 1.5rem;
+        }
+
+
+        /* --- Feature Section ("Not just any chips") --- */
+        .feature-section {
+            background-color: var(--bg-offwhite);
+        }
+
+        .feature-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .feature-image img {
+             border-radius: 20px;
+        }
+
+        .feature-text {
+            background-color: var(--bg-brown);
+            color: var(--text-light);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .feature-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .feature-text p {
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* --- Taste Section --- */
+        .taste-section .container {
+            text-align: center;
+        }
+
+        .taste-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .taste-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .taste-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+            transition: background 0.3s ease;
+        }
+        .taste-card:hover::after {
+             background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 70%);
+        }
+
+        .taste-card .overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 2;
+        }
+
+        .taste-card .btn {
+            background-color: var(--primary-red);
+            color: white;
+            width: 100%;
+        }
+
+        /* --- Signup Section --- */
+        .signup-section {
+            background-color: var(--primary-red);
+            color: white;
+            text-align: center;
+        }
+        
+        .signup-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .signup-content h3 {
+            font-size: 1.8rem;
+            max-width: 500px;
+        }
+
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 450px;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .signup-form input {
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+        .signup-form button {
+            border: none;
+            cursor: pointer;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--dark-red);
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h4 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: var(--primary-yellow);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .app-stores img {
+            height: 40px;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #4e2022;
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+
+        /* --- Media Query for Tablets --- */
+        @media (min-width: 768px) {
+            .container {
+                padding: 80px 0;
+            }
+
+            h1 { font-size: 3.5rem; }
+            h2.section-header { font-size: 3rem; }
+
+            .hamburger-menu { display: none; }
+            .nav-links { display: flex; }
+
+            .hero .container {
+                flex-direction: row;
+                text-align: left;
+                gap: 40px;
+                align-items: center;
+            }
+            .hero-text { flex: 1; }
+            .hero-image { flex: 1; max-width: 100%; }
+            .hero-text p { margin-left: 0; }
+
+            .products-grid { grid-template-columns: 1fr 1fr 1fr; }
+            
+            .best-sellers-layout {
+                display: grid;
+                grid-template-columns: 3fr 1fr;
+                gap: 40px;
+                align-items: center;
+                text-align: left;
+            }
+            .best-sellers .section-header {
+                 margin-bottom: 30px;
+            }
+            
+            .create-your-own { margin-top: 0; }
+
+            .feature-content {
+                flex-direction: row;
+                gap: 50px;
+                align-items: center;
+            }
+            .feature-image { flex: 1; }
+            .feature-text { flex: 1; text-align: left; }
+            
+            .taste-grid { grid-template-columns: 1fr 1fr 1fr; }
+            
+            .signup-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .signup-content img { height: 120px; }
+            .signup-content h3 { text-align: left; }
+            
+            .signup-form { flex-direction: row; width: auto; }
+            .signup-form input { flex: 1; }
+            
+            .footer-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        /* --- Media Query for Desktops --- */
+        @media (min-width: 1024px) {
+            .hero-text h1 { font-size: 4.5rem; }
+        }
+    </style>
 </head>
-<body class="font-sans">
+<body>
 
-  <!-- Header -->
-  <header class="bg-red-600 text-white">
-    <div class="container mx-auto flex justify-between items-center py-4 px-6">
-      <h1 class="text-2xl font-bold">Lay's Potato</h1>
-      <nav class="hidden md:flex space-x-6">
-        <a href="#" class="hover:text-yellow-300">Create Your Own</a>
-        <a href="#" class="hover:text-yellow-300">Shop Chips</a>
-        <a href="#" class="hover:text-yellow-300">Shop by Categories</a>
-        <a href="#" class="hover:text-yellow-300">Explore</a>
-      </nav>
-      <div class="flex space-x-4">
-        <button>🔍</button>
-        <button>🛒</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="bg-red-600 text-white text-center py-16">
-    <h2 class="text-4xl md:text-5xl font-bold mb-4">The Best Snack For You</h2>
-    <p class="mb-6">Potato Chips are the most eaten and popular crispy snack items.</p>
-    <a href="#" class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-500">Shop Now</a>
-    <div class="flex justify-center mt-10 space-x-6">
-      <img src="lays-classic.png" alt="Classic" class="h-52">
-      <img src="lays-wavy.png" alt="Wavy" class="h-52">
-    </div>
-  </section>
-
-  <!-- Best Sellers -->
-  <section class="py-12 text-center">
-    <h3 class="text-2xl font-bold">Best Sellers</h3>
-    <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-      <div>
-        <img src="lays1.png" alt="Cheddar" class="mx-auto h-40">
-        <p class="mt-2 font-semibold">Cheddar & Sour Cream</p>
-        <span class="text-gray-600">$44.09</span>
-      </div>
-      <div>
-        <img src="lays2.png" alt="Salt" class="mx-auto h-40">
-        <p class="mt-2 font-semibold">Salt & Vinegar Flavour</p>
-        <span class="text-gray-600">$63.99</span>
-      </div>
-      <div>
-        <img src="lays3.png" alt="Classic" class="mx-auto h-40">
-        <p class="mt-2 font-semibold">Family Size Classic</p>
-        <span class="text-gray-600">$24.99</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Promo -->
-  <section class="bg-gray-100 py-12">
-    <div class="max-w-3xl mx-auto text-center">
-      <h4 class="text-2xl font-bold">Not just any chips.</h4>
-      <p class="mt-2 text-gray-600">Potato Chips are the most eaten and popular crispy snack items.</p>
-      <a href="#" class="mt-4 inline-block bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-500">Shop Now</a>
-    </div>
-  </section>
-
-  <!-- Taste the Good Stuff -->
-  <section class="py-12">
-    <div class="container mx-auto text-center">
-      <h3 class="text-2xl font-bold">Taste the Good Stuff</h3>
-      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-          <img src="snack1.jpg" alt="Snack 1" class="w-full h-64 object-cover">
-          <div class="p-4">
-            <h5 class="font-semibold mb-2">Snacking</h5>
-            <a href="#" class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700">Shop Now</a>
-          </div>
+    <!-- Header -->
+    <header class="header">
+        <img src="https://www.lays.com/sites/lays.com/files/logo.png" alt="Logo Lay's" class="logo">
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Buat Sendiri</a></li>
+                <li><a href="#">Beli Chips</a></li>
+                <li><a href="#">Acara Spesial</a></li>
+                <li><a href="#">Jelajahi</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-          <img src="snack2.jpg" alt="Snack 2" class="w-full h-64 object-cover">
-          <div class="p-4">
-            <h5 class="font-semibold mb-2">Snacking</h5>
-            <a href="#" class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700">Shop Now</a>
-          </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-          <img src="snack3.jpg" alt="Snack 3" class="w-full h-64 object-cover">
-          <div class="p-4">
-            <h5 class="font-semibold mb-2">Snacking</h5>
-            <a href="#" class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700">Shop Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Newsletter -->
-  <section class="bg-yellow-500 py-12 text-center">
-    <h4 class="text-xl font-bold">Sign up to receive exclusive offers and discounts</h4>
-    <form class="mt-4 flex justify-center">
-      <input type="email" placeholder="Your email address" class="px-4 py-2 rounded-l-lg w-64 focus:outline-none">
-      <button class="bg-red-600 text-white px-6 py-2 rounded-r-lg hover:bg-red-700">Subscribe</button>
-    </form>
-  </section>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-text">
+                    <h1>Snack Terbaik Untukmu</h1>
+                    <p>Keripik Kentang adalah snack renyah paling populer. Beli Keripik Kentang favoritmu secara online sekarang juga!</p>
+                    <a href="#" class="btn btn-yellow">Beli Sekarang</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://i.ibb.co/L5pC1m9/lays-hero-chips.png" alt="Keripik Lay's Classic dan Wavy">
+                </div>
+            </div>
+        </section>
+        
+        <div class="wave-divider"></div>
 
-  <!-- Footer -->
-  <footer class="bg-red-600 text-white py-8">
-    <div class="container mx-auto text-center">
-      <p class="mb-2">© 2023 Lay's. All rights reserved.</p>
-      <div class="flex justify-center space-x-6">
-        <a href="#">About</a>
-        <a href="#">Features</a>
-        <a href="#">Support</a>
-        <a href="#">Privacy Policy</a>
-      </div>
-    </div>
-  </footer>
+        <!-- Best Sellers Section -->
+        <section class="best-sellers">
+            <div class="container">
+                <div class="best-sellers-layout">
+                    <div>
+                        <h2 class="section-header">Paling Laris. <a href="#">Lihat Semua</a></h2>
+                        <div class="products-grid">
+                            <div class="product-card">
+                                <img src="https://i.ibb.co/3kM2yM0/lays-classic.png" alt="Lay's Classic">
+                                <h3>Lay's Classic</h3>
+                                <span class="rating">★★★★★</span>
+                                <p class="price">Rp 15.000</p>
+                            </div>
+                            <div class="product-card">
+                                <img src="https://i.ibb.co/f45r055/lays-bbq.png" alt="Lay's BBQ">
+                                <h3>Lay's Barbecue</h3>
+                                <span class="rating">★★★★★</span>
+                                <p class="price">Rp 15.000</p>
+                            </div>
+                            <div class="product-card">
+                                <img src="https://i.ibb.co/L6K2k4k/lays-sour-cream.png" alt="Lay's Sour Cream & Onion">
+                                <h3>Sour Cream & Onion</h3>
+                                <span class="rating">★★★★★</span>
+                                <p class="price">Rp 15.000</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="create-your-own">
+                        <img src="https://i.ibb.co/zX8k9Yw/lays-wavy-single.png" alt="Keripik Lay's Wavy">
+                        <h3>Buat Sendiri</h3>
+                        <p>Rancang bungkus keripik kustom Anda.</p>
+                        <a href="#" class="btn btn-yellow">Buat Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Section -->
+        <section class="feature-section">
+            <div class="container feature-content">
+                <div class="feature-image">
+                    <img src="https://i.ibb.co/9V9bJ0p/chips-collage.png" alt="Berbagai macam keripik Lay's">
+                </div>
+                <div class="feature-text">
+                    <h2>Bukan sembarang keripik.</h2>
+                    <p>Penuh rasa, renyah, dan sangat memuaskan. Dari rasa klasik hingga yang paling berani, keripik kami dibuat dengan sepenuh hati. Sempurna untuk pesta, piknik, atau sebagai teman ngemil kapan saja. Temukan rasa favoritmu!</p>
+                    <a href="#" class="btn btn-yellow">Beli Sekarang</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Taste the good stuff Section -->
+        <section class="taste-section">
+            <div class="container">
+                <h2 class="section-header">Rasakan enaknya. <a href="#">Lihat Semua</a></h2>
+                <div class="taste-grid">
+                    <div class="taste-card">
+                        <img src="https://i.ibb.co/LQrGq4Y/snacking-1.png" alt="Pria sedang memakan keripik">
+                        <div class="overlay">
+                            <a href="#" class="btn">Ngemil</a>
+                        </div>
+                    </div>
+                    <div class="taste-card">
+                        <img src="https://i.ibb.co/z57N4n3/snacking-2.png" alt="Pria sedang tersenyum memegang keripik">
+                        <div class="overlay">
+                            <a href="#" class="btn">Santai</a>
+                        </div>
+                    </div>
+                    <div class="taste-card">
+                        <img src="https://i.ibb.co/8YjM700/snacking-3.png" alt="Pria sedang menikmati keripik">
+                        <div class="overlay">
+                            <a href="#" class="btn">Berbagi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Signup Section -->
+        <section class="signup-section">
+            <div class="container signup-content">
+                <img src="https://i.ibb.co/h7nL5qQ/chips-stack.png" alt="Tumpukan keripik" style="height: 100px;">
+                <h3>Daftar untuk dapatkan penawaran dan diskon eksklusif.</h3>
+                <form class="signup-form">
+                    <input type="email" placeholder="Masukkan email Anda">
+                    <button type="submit" class="btn btn-yellow">Daftar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                 <div class="footer-column">
+                     <img src="https://www.lays.com/sites/lays.com/files/logo.png" alt="Logo Lay's" class="logo" style="margin-bottom: 20px;">
+                </div>
+                <div class="footer-column">
+                    <h4>Perusahaan</h4>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Karir</a></li>
+                        <li><a href="#">Pers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Bantuan</h4>
+                    <ul>
+                        <li><a href="#">Hubungi Kami</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Lokasi Toko</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Sumber Daya</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Resep</a></li>
+                        <li><a href="#">Bahan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Install Aplikasi</h4>
+                    <div class="app-stores">
+                       <a href="#"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"></a>
+                       <a href="#"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Google Play"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Frito-Lay North America, Inc. A Division of PepsiCo.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Script sederhana untuk fungsionalitas menu hamburger
+        const hamburger = document.querySelector('.hamburger-menu');
+        const nav = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            // Ini hanya contoh sederhana, idealnya menu akan muncul dari samping
+            // atau sebagai overlay, yang memerlukan CSS tambahan.
+            if (nav.style.display === 'flex') {
+                nav.style.display = 'none';
+            } else {
+                // Untuk demo, kita buat jadi block dan atur style-nya
+                nav.style.display = 'flex';
+                nav.style.flexDirection = 'column';
+                nav.style.position = 'absolute';
+                nav.style.top = '70px';
+                nav.style.right = '5%';
+                nav.style.backgroundColor = 'var(--primary-red)';
+                nav.style.padding = '20px';
+                nav.style.borderRadius = '10px';
+                nav.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+            }
+        });
+    </script>
 
 </body>
 </html>
