@@ -4,107 +4,93 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lay's Potato Chips</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body { font-family: Arial, sans-serif; }
-    .hero { background: #e63946; color: #fff; padding: 80px 0; text-align: center; }
-    .hero img { max-height: 250px; }
-    .best-sellers img { max-height: 150px; }
-    .promo { background: #f8f9fa; padding: 60px 0; }
-    .newsletter { background: #5a2d0c; color: #fff; padding: 40px 20px; text-align: center; }
-    footer { background: #e63946; color: #fff; padding: 40px 0; }
-    footer a { color: #fff; text-decoration: none; }
-    .card img { height: 200px; object-fit: cover; }
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="font-sans">
 
   <!-- Header -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-danger px-4">
-    <a class="navbar-brand fw-bold" href="#">Lay's Potato</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item"><a class="nav-link" href="#">Create Your Own</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Shop Chips</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Shop by Categories</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Explore</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h1 class="fw-bold">The Best Snack For You</h1>
-      <p>Potato Chips are the most eaten and popular crispy snack items.</p>
-      <a href="#" class="btn btn-warning">Shop Now</a>
-      <div class="mt-4">
-        <img src="lays-classic.png" alt="Classic">
-        <img src="lays-wavy.png" alt="Wavy">
+  <header class="bg-red-600 text-white">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-2xl font-bold">Lay's Potato</h1>
+      <nav class="hidden md:flex space-x-6">
+        <a href="#" class="hover:text-yellow-300">Create Your Own</a>
+        <a href="#" class="hover:text-yellow-300">Shop Chips</a>
+        <a href="#" class="hover:text-yellow-300">Shop by Categories</a>
+        <a href="#" class="hover:text-yellow-300">Explore</a>
+      </nav>
+      <div class="flex space-x-4">
+        <button>🔍</button>
+        <button>🛒</button>
       </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-red-600 text-white text-center py-16">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4">The Best Snack For You</h2>
+    <p class="mb-6">Potato Chips are the most eaten and popular crispy snack items.</p>
+    <a href="#" class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-500">Shop Now</a>
+    <div class="flex justify-center mt-10 space-x-6">
+      <img src="lays-classic.png" alt="Classic" class="h-52">
+      <img src="lays-wavy.png" alt="Wavy" class="h-52">
     </div>
   </section>
 
   <!-- Best Sellers -->
-  <section class="best-sellers py-5 text-center">
-    <div class="container">
-      <h2 class="fw-bold">Best Sellers</h2>
-      <div class="row mt-4">
-        <div class="col-md-3">
-          <img src="lays1.png" alt="">
-          <p>Cheddar & Sour Cream <br> $44.09</p>
-        </div>
-        <div class="col-md-3">
-          <img src="lays2.png" alt="">
-          <p>Salt and Vinegar <br> $63.99</p>
-        </div>
-        <div class="col-md-3">
-          <img src="lays3.png" alt="">
-          <p>Family size Classic <br> $24.99</p>
-        </div>
+  <section class="py-12 text-center">
+    <h3 class="text-2xl font-bold">Best Sellers</h3>
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      <div>
+        <img src="lays1.png" alt="Cheddar" class="mx-auto h-40">
+        <p class="mt-2 font-semibold">Cheddar & Sour Cream</p>
+        <span class="text-gray-600">$44.09</span>
+      </div>
+      <div>
+        <img src="lays2.png" alt="Salt" class="mx-auto h-40">
+        <p class="mt-2 font-semibold">Salt & Vinegar Flavour</p>
+        <span class="text-gray-600">$63.99</span>
+      </div>
+      <div>
+        <img src="lays3.png" alt="Classic" class="mx-auto h-40">
+        <p class="mt-2 font-semibold">Family Size Classic</p>
+        <span class="text-gray-600">$24.99</span>
       </div>
     </div>
   </section>
 
-  <!-- Promo Section -->
-  <section class="promo">
-    <div class="container text-center">
-      <h3>Not just any chips.</h3>
-      <p>Potato Chips are the most eaten and popular crispy snack items.</p>
-      <a href="#" class="btn btn-warning">Shop Now</a>
+  <!-- Promo -->
+  <section class="bg-gray-100 py-12">
+    <div class="max-w-3xl mx-auto text-center">
+      <h4 class="text-2xl font-bold">Not just any chips.</h4>
+      <p class="mt-2 text-gray-600">Potato Chips are the most eaten and popular crispy snack items.</p>
+      <a href="#" class="mt-4 inline-block bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-500">Shop Now</a>
     </div>
   </section>
 
   <!-- Taste the Good Stuff -->
-  <section class="py-5">
-    <div class="container text-center">
-      <h2 class="fw-bold">Taste the Good Stuff</h2>
-      <div class="row mt-4">
-        <div class="col-md-4">
-          <div class="card">
-            <img src="snack1.jpg" class="card-img-top">
-            <div class="card-body">
-              <h5>Snacking</h5>
-              <a href="#" class="btn btn-danger">Shop now</a>
-            </div>
+  <section class="py-12">
+    <div class="container mx-auto text-center">
+      <h3 class="text-2xl font-bold">Taste the Good Stuff</h3>
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <img src="snack1.jpg" alt="Snack 1" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <h5 class="font-semibold mb-2">Snacking</h5>
+            <a href="#" class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700">Shop Now</a>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="snack2.jpg" class="card-img-top">
-            <div class="card-body">
-              <h5>Snacking</h5>
-              <a href="#" class="btn btn-danger">Shop now</a>
-            </div>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <img src="snack2.jpg" alt="Snack 2" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <h5 class="font-semibold mb-2">Snacking</h5>
+            <a href="#" class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700">Shop Now</a>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="snack3.jpg" class="card-img-top">
-            <div class="card-body">
-              <h5>Snacking</h5>
-              <a href="#" class="btn btn-danger">Shop now</a>
-            </div>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <img src="snack3.jpg" alt="Snack 3" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <h5 class="font-semibold mb-2">Snacking</h5>
+            <a href="#" class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700">Shop Now</a>
           </div>
         </div>
       </div>
@@ -112,18 +98,24 @@
   </section>
 
   <!-- Newsletter -->
-  <div class="newsletter">
-    <h4>Sign up to receive exclusive offers and discounts</h4>
-    <form class="d-flex justify-content-center mt-3">
-      <input type="email" class="form-control w-25" placeholder="Your email address">
-      <button class="btn btn-warning ms-2">Subscribe</button>
+  <section class="bg-yellow-500 py-12 text-center">
+    <h4 class="text-xl font-bold">Sign up to receive exclusive offers and discounts</h4>
+    <form class="mt-4 flex justify-center">
+      <input type="email" placeholder="Your email address" class="px-4 py-2 rounded-l-lg w-64 focus:outline-none">
+      <button class="bg-red-600 text-white px-6 py-2 rounded-r-lg hover:bg-red-700">Subscribe</button>
     </form>
-  </div>
+  </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="container text-center">
-      <p>© 2023 Lay's. All rights reserved.</p>
+  <footer class="bg-red-600 text-white py-8">
+    <div class="container mx-auto text-center">
+      <p class="mb-2">© 2023 Lay's. All rights reserved.</p>
+      <div class="flex justify-center space-x-6">
+        <a href="#">About</a>
+        <a href="#">Features</a>
+        <a href="#">Support</a>
+        <a href="#">Privacy Policy</a>
+      </div>
     </div>
   </footer>
 
